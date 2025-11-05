@@ -13,7 +13,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = Customer::all();
-        return view('customers.index');
+        return view('customers.index', compact('customers'));
     }
 
     /**
@@ -21,7 +21,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('customers.create');
     }
 
     /**
@@ -29,7 +29,19 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'firstname' => 'required|string|max:100',
+            'lastname' => 'required|string|max:100',
+            'email' => 'required|email|unique:customers,email',
+            'phone' => 'required|string|max:14',
+            'address' => 'nullable|string',
+            'birthday' => 'nullable|date',
+            'rfc' => 'nullable|string|max:13',
+        ]);
+
+        Customer::create($data);
+
+        return redirect()->route('customers.index');
     }
 
     /**
@@ -37,7 +49,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        return view('customers.show', compact('customer'));
     }
 
     /**
@@ -45,7 +57,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('customers.edit', compact('customer'));
     }
 
     /**
@@ -53,7 +65,19 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $data = $request->validate([
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:customers,email,' . $customer->id,
+            'phone' => 'required|string|max:20',
+            'address' => 'nullable|string|max:500',
+            'birthday' => 'nullable|date',
+            'rfc' => 'nullable|string|max:13|unique:customers,rfc,' . $customer->id,
+        ]);
+
+        $customer->update($data);
+
+        return redirect()->route('customers.show', $customer);
     }
 
     /**
@@ -61,6 +85,7 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+        return redirect()->route('customers.index');
     }
 }
