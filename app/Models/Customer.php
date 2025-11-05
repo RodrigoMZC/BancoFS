@@ -13,7 +13,7 @@ class Customer extends Model
         'phone',
         'address',
         'email',
-        'birtday',
+        'birthday',
         'rfc',
     ];
 
