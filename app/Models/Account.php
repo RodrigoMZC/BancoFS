@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\Customer;
 
 class Account extends Model
 {
@@ -13,13 +13,17 @@ class Account extends Model
 
     protected $fillable = [
         'customer_id',
-        'account_type',
+        'type',
         'balance',
         'date_opened',
         'status'
     ];
 
-    public function customers(): BelongsTo {
-        return $this->belongsTo(Account::class);
+    /**
+     * Cuenta pertenece a un cliente.
+     */
+    public function customer(): BelongsTo
+    {
+        return $this->belongsTo(Customer::class);
     }
 }
