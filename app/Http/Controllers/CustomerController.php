@@ -65,18 +65,7 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        $data = $request->validate([
-            'firstname' => 'required|string|max:255',
-            'lastname' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:customers,email,' . $customer->id,
-            'phone' => 'required|string|max:20',
-            'address' => 'nullable|string|max:500',
-            'birthday' => 'nullable|date',
-            'rfc' => 'nullable|string|max:13|unique:customers,rfc,' . $customer->id,
-        ]);
-
-        $customer->update($data);
-
+        $customer->update($request->all());
         return redirect()->route('customers.show', $customer);
     }
 

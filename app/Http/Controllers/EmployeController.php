@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Employe;
 use Illuminate\Http\Request;
 
-class EmployeeController extends Controller
+class EmployeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $employees = Employe::all();
-        return view('employees.index');
+        $employes = Employe::all();
+        return view('employes.index', compact('employes'));
     }
 
     /**
@@ -21,7 +21,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('employes.create');
     }
 
     /**
@@ -29,7 +29,8 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employe = Employe::create($request->all());
+        return redirect()->route('employes.index');
     }
 
     /**
@@ -37,7 +38,7 @@ class EmployeeController extends Controller
      */
     public function show(Employe $employe)
     {
-        //
+        return view('employes.show', compact('employe'));
     }
 
     /**
@@ -45,7 +46,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employe $employe)
     {
-        //
+        return view('employes.edit', compact('employe'));
     }
 
     /**
@@ -53,7 +54,8 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employe $employe)
     {
-        //
+        $employe->update($request->all());
+        return redirect()->route('employes.index');
     }
 
     /**
@@ -61,6 +63,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Employe $employe)
     {
-        //
+        $employe->delete();
+        return redirect()->route('employes.index');
     }
 }

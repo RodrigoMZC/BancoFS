@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Customer extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'firstname',
         'lastname',
@@ -17,8 +20,8 @@ class Customer extends Model
         'rfc',
     ];
 
-    public function accounts(): BelongsToMany {
-        return $this->belongsToMany(Account::class, 'customers_accounts')->withPivot('role');
+    public function accounts(): HasMany {
+        return $this->hasMany(Account::class);
     }
 
 
