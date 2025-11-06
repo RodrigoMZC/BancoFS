@@ -1,13 +1,14 @@
-<x-mainview>
-    <x-slot name="title">Clientes</x-slot>
+<x-main-view>
+    <x-slot name="title">Empleados</x-slot>
     <x-slot name="slot">
-        <div class="flex justify-end mb-4">
 
-            <a href="{{ route('customers.create') }}"
+        <div class="flex justify-end mb-4">
+            <a href="{{ route('employes.create') }}"
                class="inline-flex items-center px-3 py-1 bg-indigo-600 hover:bg-indigo-400 text-white font-medium rounded-lg shadow-sm transition-colors">
-                Crear Cliente
+                Crear Empleado
             </a>
         </div>
+
 
         <div class="overflow-x-auto bg-white rounded-lg shadow">
             <table class="min-w-full divide-y divide-gray-200">
@@ -17,7 +18,7 @@
                             ID
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Nombre
+                            Nombre Completo
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Email
@@ -26,7 +27,7 @@
                             Teléfono
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            RFC
+                            Inicio de Contrato
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Acciones
@@ -34,34 +35,34 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach($customers as $customer)
+                    @foreach($employes as $employe)
                     <tr class="hover:bg-gray-50 transition-colors">
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {{ $customer->id }}
+                            {{ $employe->id }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                            {{ $customer->firstname }} {{ $customer->lastname }}
+                            {{ $employe->firstname }} {{ $employe->lastname }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $customer->email }}
+                            {{ $employe->email }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $customer->phone }}
+                            {{ $employe->phone }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $customer->rfc ?? 'N/A' }}
+                            {{ $employe->hire_date ?? 'N/A' }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                             <div class="flex space-x-2">
-                                <a href="{{ route('customers.show', $customer) }}"
-                                   class="inline-flex items-center px-2 py-1 bg-indigo-600 hover:bg-indigo-400 text-white text-xs font-medium rounded-md transition-colors">
+                                <a href="{{ route('employes.show', $employe) }}"
+                                   class="inline-flex items-center px-2 py-1 bg-blue-600 hover:bg-blue-400 text-white text-xs font-medium rounded-md transition-colors">
                                     Ver
                                 </a>
-                                <a href="{{ route('customers.edit', $customer) }}"
+                                <a href="{{ route('employes.edit', $employe) }}"
                                    class="inline-flex items-center px-2 py-1 bg-yellow-600 hover:bg-yellow-400 text-white text-xs font-medium rounded-md transition-colors">
                                     Editar
                                 </a>
-                                <form action="{{ route('customers.destroy', $customer) }}"
+                                <form action="{{ route('employes.destroy', $employe) }}"
                                       method="POST"
                                       class="inline">
                                     @csrf
@@ -79,4 +80,4 @@
             </table>
         </div>
     </x-slot>
-</x-mainview>
+</x-main-view>

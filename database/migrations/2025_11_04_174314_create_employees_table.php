@@ -19,6 +19,8 @@ return new class extends Migration
             $table->double('salary');
             $table->string('phone', 14)->nullable();
             $table->string('email', 100)->unique();
+            $table->date('birthday')->nullable();
+            $table->string('rfc', 14)->unique()->nullable();
             $table->timestamps();
         });
     }
