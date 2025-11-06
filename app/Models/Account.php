@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Account extends Model
 {
     protected $fillable = [
-        'account_type',
-        'balance',
-        'date_opened',
-        'status'
-    ];
+    'type',
+    'balance',
+    'date_opened',
+    'status'
+];
 
     public function customers(): BelongsToMany {
         return $this->belongsToMany(Account::class, 'customers_accounts')->withPivot('role');

@@ -7,60 +7,63 @@ use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
-    {
-        $accounts = Account::all();
-        return view('accounts.index');
-    }
+{
+    $accounts = Account::all();
+    return view('accounts.index', compact('accounts'));
+}
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        //
+        return view('accounts.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'type' => 'required|string|max:30',
+            'balance' => 'numeric|min:0',
+            'date_opened' => 'required|date',
+            'status' => 'string|max:50'
+        ]);
+
+        Account::create([
+            'type' => $request->type,
+            'balance' => $request->balance ?? 0,
+            'date_opened' => $request->date_opened,
+            'status' => $request->status ?? 'active'
+        ]);
+
+        return redirect()->route('accounts.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Account $account)
     {
-        //
+        return view('accounts.show', compact('account'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Account $account)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Account $account)
-    {
-        //
-    }
+    public function edit($id)
+{
+    $account = Account::findOrFail($id);
+    $title = "Editar cuenta";
+    return view('accounts.edit', compact('account', 'title'));
+}
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Account $account)
-    {
-        //
-    }
+public function update(Request $request, $id)
+{
+    $account = Account::findOrFail($id);
+    $account->update($request->only(['type', 'balance', 'date_opened', 'status']));
+    return redirect()->route('accounts.index');
+}
+
+
+   public function destroy($id)
+{
+    $account = Account::Find($id);
+    $account->delete();
+    return redirect()->route('accounts.index');
+}
+
 }
