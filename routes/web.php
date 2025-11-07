@@ -13,7 +13,8 @@ Route::resource('/employes', EmployeController::class);
 Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index');
 Route::get('/accounts/create', [AccountController::class, 'create'])->name('accounts.create');
 Route::post('/accounts', [AccountController::class, 'store'])->name('accounts.store');
-Route::get('/accounts/{account}', [AccountController::class, 'show'])->name('accounts.show');
 Route::get('/accounts/{id}/edit', [AccountController::class, 'edit'])->name('accounts.edit');
 Route::put('/accounts/{id}', [AccountController::class, 'update'])->name('accounts.update');
 Route::delete('/accounts/{id}', [AccountController::class, 'destroy'])->name('accounts.destroy');
+Route::get('/accounts/{id}', [AccountController::class, 'show'])->name('accounts.show');
+
