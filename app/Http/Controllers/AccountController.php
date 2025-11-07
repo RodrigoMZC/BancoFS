@@ -49,8 +49,9 @@ class AccountController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Account $account)
+    public function show($id)
     {
+        $account = Account::findOrFail($id);
         return view('accounts.show', compact('account'));
     }
 
