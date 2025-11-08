@@ -17,6 +17,16 @@
                <span class="flex-1 ms-3 whitespace-nowrap">Empleados</span>
             </a>
          </li>
+        <li>
+            <a href="{{ route('branches.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+               <span class="flex-1 ms-3 whitespace-nowrap">Sucursales</span>
+            </a>
+         </li>
+         <li>
+            <a href="{{ route('transactions.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+               <span class="flex-1 ms-3 whitespace-nowrap">Trsansacciones</span>
+            </a>
+         </li>
       </ul>
    </div>
 </aside>

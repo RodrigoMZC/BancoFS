@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('type', 50);
             $table->decimal('amount', 15, 2);
             $table->text('description')->nullable();
-            $table->timestamp('transaction_date')->useCurrent();
+            $table->date('transaction_date')->nullable();
             $table->timestamps();
         });
     }

@@ -24,7 +24,7 @@
                        class="px-3 py-1 bg-yellow-600 hover:bg-yellow-400 text-white font-medium rounded-lg shadow-sm transition-colors text-sm">
                         Editar
                     </a>
-                    <form action="{{ route('customers.destroy', $customer) }}" method="POST");">
+                    <form action="{{ route('customers.destroy', $customer) }}" method="POST";>
                         @csrf
                         @method('DELETE')
                         <button type="submit"
@@ -38,24 +38,24 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <span class="block text-sm font-medium text-gray-500">Teléfono</span>
-                    <p class="text-lg text-gray-800">{{ $customer->phone ?? 'N/A' }}</p>
+                    <p class="text-lg text-gray-800">{{ $customer->phone ?? }}</p>
                 </div>
 
                 <div>
                     <span class="block text-sm font-medium text-gray-500">RFC</span>
-                    <p class="text-lg text-gray-800 uppercase">{{ $customer->rfc ?? 'N/A' }}</p>
+                    <p class="text-lg text-gray-800 uppercase">{{ $customer->rfc }}</p>
                 </div>
 
                 <div>
                     <span class="block text-sm font-medium text-gray-500">Fecha de Nacimiento</span>
                     <p class="text-lg text-gray-800">
-                        {{ $customer->birthday ?? 'N/A' }}
+                        {{ $customer->birthday }}
                     </p>
                 </div>
 
                 <div class="md:col-span-2">
                     <span class="block text-sm font-medium text-gray-500">Dirección</span>
-                    <p class="text-lg text-gray-800">{{ $customer->address ?? 'N/A' }}</p>
+                    <p class="text-lg text-gray-800">{{ $customer->address }}</p>
                 </div>
             </div>
         </div>
