@@ -19,7 +19,7 @@
 
                     <div class="flex space-x-2 mt-4 md:mt-0">
                         <a href="{{ route('transactions.edit', $transaction) }}"
-                           class="px-3 py-1 bg-yellow-600 hover:bg-yellow-400 text-white font-medium rounded-lg shadow-sm transition-colors text-sm">
+                           class="px-3 py-1 bg-blue-600 hover:bg-blue-400 text-white font-medium rounded-lg shadow-sm transition-colors text-sm">
                             Editar
                         </a>
                         <form action="{{ route('transactions.destroy', $transaction) }}" method="POST">

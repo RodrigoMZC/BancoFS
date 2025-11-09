@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employe;
+use App\Models\Branch;
 use Illuminate\Http\Request;
 
 class EmployeController extends Controller
@@ -21,7 +22,8 @@ class EmployeController extends Controller
      */
     public function create()
     {
-        return view('employes.create');
+        $branches = Branch::all();
+        return view('employes.create', compact('branches'));
     }
 
     /**
@@ -46,7 +48,8 @@ class EmployeController extends Controller
      */
     public function edit(Employe $employe)
     {
-        return view('employes.edit', compact('employe'));
+        $branches = Branch::all();
+        return view('employes.edit', compact('employe', 'branches'));
     }
 
     /**

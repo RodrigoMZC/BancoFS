@@ -17,6 +17,7 @@ class Employe extends Model
         'email',
         'rfc',
         'birthday',
+        'branch_id',
     ];
 
 }

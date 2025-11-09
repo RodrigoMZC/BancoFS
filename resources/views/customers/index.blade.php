@@ -2,72 +2,43 @@
     <x-slot name="title">Clientes</x-slot>
     <x-slot name="slot">
         <div class="flex justify-end mb-4">
-
-            <a href="{{ route('customers.create') }}"
-               class="inline-flex items-center px-3 py-1 bg-indigo-600 hover:bg-indigo-400 text-white font-medium rounded-lg shadow-sm transition-colors">
+            <a href="{{ route('customers.create') }}" class="btn">
                 Crear Cliente
             </a>
         </div>
 
-        <div class="overflow-x-auto bg-white rounded-lg shadow">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
+        <div class="card">
+            <table class="table">
+                <thead>
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            ID
-                        </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Nombre
-                        </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Email
-                        </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Teléfono
-                        </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            RFC
-                        </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Acciones
-                        </th>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>RFC</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
+                <tbody>
                     @foreach($customers as $customer)
-                    <tr class="hover:bg-gray-50 transition-colors">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {{ $customer->id }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                            {{ $customer->firstname }} {{ $customer->lastname }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $customer->email }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $customer->phone }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $customer->rfc ?? 'N/A' }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <tr>
+                        <td>{{ $customer->id }}</td>
+                        <td>{{ $customer->firstname }} {{ $customer->lastname }}</td>
+                        <td>{{ $customer->email }}</td>
+                        <td>{{ $customer->phone }}</td>
+                        <td>{{ $customer->rfc ?? 'N/A' }}</td>
+                        <td>
                             <div class="flex space-x-2">
-                                <a href="{{ route('customers.show', $customer) }}"
-                                   class="inline-flex items-center px-2 py-1 bg-indigo-600 hover:bg-indigo-400 text-white text-xs font-medium rounded-md transition-colors">
+                                <a href="{{ route('customers.show', $customer) }}" class="btn">
                                     Ver
                                 </a>
-                                <a href="{{ route('customers.edit', $customer) }}"
-                                   class="inline-flex items-center px-2 py-1 bg-yellow-600 hover:bg-yellow-400 text-white text-xs font-medium rounded-md transition-colors">
+                                <a href="{{ route('customers.edit', $customer) }}" class="btn">
                                     Editar
                                 </a>
-                                <form action="{{ route('customers.destroy', $customer) }}"
-                                      method="POST"
-                                      class="inline">
+                                <form action="{{ route('customers.destroy', $customer) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit"
-                                            class="inline-flex items-center px-2 py-1 bg-red-600 hover:bg-red-400 text-white text-xs font-medium rounded-md transition-colors">
+                                    <button type="submit" class="btn" style="background-color: #ef4444;">
                                         Eliminar
                                     </button>
                                 </form>
