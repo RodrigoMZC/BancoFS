@@ -13,3 +13,97 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* Custom Minimalist Styles */
+body {
+    background-color: #f9fafb; /* A very light gray for a bit of depth */
+    font-family: sans-serif;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #0764E0;
+}
+
+.btn {
+    background-color: #0764E0;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    background-color: #054b9a;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table th, .table td {
+    border: 1px solid #e5e7eb;
+    padding: 12px;
+    text-align: left;
+}
+
+.table thead {
+    background-color: #f3f4f6;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.sidebar {
+    background-color: #0764E0; /* Blue background */
+    padding: 20px;
+    border-right: 1px solid #ffffff; /* White division line */
+}
+
+.sidebar a {
+    display: block;
+    color: #ffffff; /* White text */
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    border-bottom: 1px solid #ffffff; /* White division line */
+}
+
+.sidebar a:hover {
+    background-color: #054b9a; /* Darker blue on hover */
+}
+
+.sidebar a.active {
+    background-color: #054b9a; /* Darker blue for active link */
+    color: #ffffff;
+}
+
+.bg-light-gray {
+    background-color: #f9fafb;
+}
