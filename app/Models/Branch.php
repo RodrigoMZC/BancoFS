@@ -13,7 +13,7 @@ class Branch extends Model
         'phone'
     ];
 
-    public function employees(): HasMany {
+    public function employes(): HasMany {
         return $this->hasMany(Employe::class);
     }
 }

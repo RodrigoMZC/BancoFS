@@ -31,7 +31,7 @@
     {{-- Incluyes el componente sidebar --}}
     @include('includes.sidebar')
 
-    {{-- Este sera el contenido que se mostrara de anera dinamica --}}
+    {{-- Este sera el contenido que se mostrara de manera dinamica --}}
     <div class="sm:ml-64">
         <div class="p-6 lg:p-8 mt-6">
             {{ $slot }}

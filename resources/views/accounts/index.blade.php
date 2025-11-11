@@ -20,15 +20,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($accounts as $account)
+                    @foreach ($accounts as $account)
                         <tr>
                             <td>{{ $account->id }}</td>
-                            <td>{{ ucfirst($account->type) }}</td>
+                            <td>{{ $account->type }}</td>
                             <td>${{ number_format($account->balance, 2) }}</td>
                             <td>{{ $account->date_opened }}</td>
                             <td>
                                 <span class="{{ $account->status === 'active' ? 'text-green-600' : 'text-red-600' }}">
-                                    {{ ucfirst($account->status) }}
+                                    {{ $account->status }}
                                 </span>
                             </td>
                             <td>
@@ -49,9 +49,7 @@
                                 </div>
                             </td>
                         </tr>
-                    @empty
-                       
-                    @endforelse
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -39,7 +39,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <span class="block text-sm font-medium text-gray-500">Tipo de cuenta</span>
-                        <p class="text-lg text-gray-800">{{ ucfirst($account->type) }}</p>
+                        <p class="text-lg text-gray-800">{{ $account->type }}</p>
                     </div>
 
                     <div>
@@ -56,7 +56,7 @@
                         <span class="block text-sm font-medium text-gray-500">Estado</span>
                         <p class="text-lg text-gray-800">
                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $account->status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
-                                {{ ucfirst($account->status) }}
+                                {{ $account->status }}
                             </span>
                         </p>
                     </div>

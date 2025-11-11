@@ -71,7 +71,7 @@
                         <textarea name="address"
                                   id="address"
                                   rows="3"
-                                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">{{ old('address') }}
+                                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                         </textarea>
                     </div>
 
@@ -95,7 +95,7 @@
                                    name="rfc"
                                    id="rfc"
                                    maxlength="13"
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                         </div>
                     </div>
 

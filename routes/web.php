@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () { return redirect('/customers'); });
 Route::resource('/customers', CustomerController::class);
 Route::resource('/employes', EmployeController::class);
+Route::resource('/accounts', AccountController::class);
+Route::resource('/branches', BranchesController::class);
+Route::resource('/transactions', TransactionsController::class);
+
+/*Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
+Route::get('/customers/create', [CustomerController::class, 'create'])->name('customers.create');
+Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
+Route::get('/customers/{customer}/edit', [CustomerController::class, 'edit'])->name('customers.edit');
+Route::put('/customers/{customer}', [CustomerController::class, 'update'])->name('customers|.update');
+Route::delete('/customers/{customer}', [CustomerController::class, 'destroy'])->name('customers.destroy');
+Route::get('/customers/{customer}', [CustomerController::class, 'show'])->name('customers.show');
 
 //Rutas para accounts
 Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index');
@@ -34,4 +45,4 @@ Route::post('/transactions', [TransactionsController::class, 'store'])->name('tr
 Route::get('/transactions/{transaction}', [TransactionsController::class, 'show'])->name('transactions.show');
 Route::get('/transactions/{transaction}/edit', [TransactionsController::class, 'edit'])->name('transactions.edit');
 Route::put('/transactions/{transaction}', [TransactionsController::class, 'update'])->name('transactions.update');
-Route::delete('/transactions/{transaction}', [TransactionsController::class, 'destroy'])->name('transactions.destroy');
+Route::delete('/transactions/{transaction}', [TransactionsController::class, 'destroy'])->name('transactions.destroy');*/
